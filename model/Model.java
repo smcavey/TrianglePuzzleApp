@@ -1,7 +1,7 @@
 package starting.model;
 
 public class Model {
-	TrianglePuzzle puzzle;
+	public TrianglePuzzle puzzle;
 	
 	public Model() {
 		puzzle = new TrianglePuzzle();
@@ -12,6 +12,5 @@ public class Model {
 	public void setPuzzle() {
 		this.puzzle = new TrianglePuzzle();
 	}
-	
 	
 }

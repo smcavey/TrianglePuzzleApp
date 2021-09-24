@@ -1,8 +1,12 @@
 package starting.view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
+
+import starting.model.Edge;
 import starting.model.Model;
+import starting.model.Node;
 
 public class TrianglePuzzleDrawer extends JPanel {
 
@@ -25,9 +29,20 @@ public class TrianglePuzzleDrawer extends JPanel {
 		// do the math and figure out WHERE to draw all the boxes (nodes) lines (edges)
 		
 		// DRAW ENTIRE PUZZLE HERE...
-		g.drawLine(220, 20, 70, 350);
-		g.drawLine(220, 20, 370, 350);
-		g.drawRect(210, 10, 20, 20);
+		for(Node nodes : model.puzzle.nodeList) {
+			g.drawRect(nodes.getXCoord(), nodes.getYCoord(), nodes.getWidth(), nodes.getHeight());
+			if(nodes.getIsSelected() == false) {
+				g.setColor(Color.LIGHT_GRAY);
+			}
+			else {
+				g.setColor(Color.CYAN);
+			}
+			g.fillRect(nodes.getXCoord(), nodes.getYCoord(), nodes.getWidth(), nodes.getHeight());
+		}
+		for(Edge edges : model.puzzle.edgeList) {
+			g.setColor(edges.getColor());
+			g.drawLine(edges.getXOneCoord(), edges.getYOneCoord(), edges.getXTwoCoord(), edges.getYTwoCoord());
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package starting.controller;
 
 import starting.model.Model;
+import starting.model.TrianglePuzzle;
 import starting.view.TrianglePuzzleApp;
 
 public class ResetController {
@@ -14,6 +15,7 @@ public class ResetController {
 	}
 	
 	public void process() {
-		System.out.println("You clicked Reset!");
+		model.puzzle = new TrianglePuzzle();
+		app.getPanel().repaint();
 	}
 }
