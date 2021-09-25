@@ -76,9 +76,9 @@ public class TrianglePuzzleApp extends JFrame {
 		
 		JLabel lblScore = new JLabel("Score:");
 		
-		JLabel playerMovesLabel = new JLabel("0");
+		JLabel playerMovesLabel = new JLabel(String.valueOf(model.puzzle.getMoves()));
 		
-		JLabel playerScoreLabel = new JLabel("0");
+		JLabel playerScoreLabel = new JLabel(String.valueOf(model.puzzle.getScore()));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

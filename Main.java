@@ -6,9 +6,9 @@ import starting.view.TrianglePuzzleApp;
 public class Main {
 	public static void main(String[] args) {
 		
-		Model m = new Model();
+		Model model = new Model();
 		
-		TrianglePuzzleApp tpa = new TrianglePuzzleApp(m);
+		TrianglePuzzleApp tpa = new TrianglePuzzleApp(model);
 		tpa.setVisible(true);
 	}
 }

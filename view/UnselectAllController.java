@@ -1,5 +1,6 @@
 package starting.view;
 
+import starting.model.Edge;
 import starting.model.Model;
 import starting.model.Node;
 import starting.view.TrianglePuzzleApp;
@@ -23,8 +24,12 @@ public class UnselectAllController {
 				}
 				i++;
 			}
-			app.getPanel().repaint();
+			for(int j = 0; j < model.puzzle.edgeList.size(); j++) {
+				model.puzzle.edgeList.get(j).setIsSelected(false);
+			}
 		}
+		app.getPanel().validate();
+		app.getPanel().repaint();
 		
 	}
 

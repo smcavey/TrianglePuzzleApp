@@ -3,6 +3,7 @@ package starting.controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import starting.model.Edge;
 import starting.model.Model;
 import starting.model.Node;
 import starting.view.TrianglePuzzleApp;
@@ -29,10 +30,21 @@ public class MouseHandler extends MouseAdapter {
 				else {
 					model.puzzle.nodeList.get(i).setIsSelected(true);
 				}
-				app.getPanel().repaint();
 			}
 			i++;
 		}
+		int j = 0;
+		for(Edge edges : model.puzzle.edgeList) {
+			if(model.puzzle.edgeList.get(j).getThatNode().getIsSelected() == true && model.puzzle.edgeList.get(j).getThisNode().getIsSelected() == true) {
+				model.puzzle.edgeList.get(j).setIsSelected(true);
+			}
+			else {
+				model.puzzle.edgeList.get(j).setIsSelected(false);
+			}
+			j++;
+		}
+		app.getPanel().validate();
+		app.getPanel().repaint();
 	}
 	
 }

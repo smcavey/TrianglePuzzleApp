@@ -16,6 +16,8 @@ public class ResetController {
 	
 	public void process() {
 		model.puzzle = new TrianglePuzzle();
+		model.puzzle.setMoves(0);
+		model.puzzle.setScore(0);
 		app.getPanel().repaint();
 	}
 }

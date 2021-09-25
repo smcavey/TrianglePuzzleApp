@@ -12,8 +12,9 @@ public class Edge {
 	public int yOneCoord;
 	public int yTwoCoord;
 	public Color color;
+	public boolean isSelected;
 	
-	public Edge(String ID, Node thisNode, Node thatNode, int xOneCoord, int xTwoCoord, int yOneCoord, int yTwoCoord, Color color) {
+	public Edge(String ID, Node thisNode, Node thatNode, int xOneCoord, int xTwoCoord, int yOneCoord, int yTwoCoord, Color color, boolean isSelected) {
 		this.ID = ID;
 		this.thisNode = thisNode;
 		this.thatNode = thatNode;
@@ -22,6 +23,7 @@ public class Edge {
 		this.yOneCoord = yOneCoord;
 		this.yTwoCoord = yTwoCoord;
 		this.color = color;
+		this.isSelected = isSelected;
 	}
 	
 	public String getID() {
@@ -54,6 +56,18 @@ public class Edge {
 	
 	public Color getColor() {
 		return this.color;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	
+	public void setIsSelected(boolean selection) {
+		this.isSelected = selection;
+	}
+	
+	public boolean getIsSelected() {
+		return this.isSelected;
 	}
 
 }
