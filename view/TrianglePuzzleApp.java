@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import starting.controller.MouseHandler;
 import starting.controller.ResetController;
 import starting.controller.SwapController;
+import starting.controller.UnselectAllController;
 import starting.model.Model;
 
 import javax.swing.GroupLayout;
@@ -131,11 +132,15 @@ public class TrianglePuzzleApp extends JFrame {
 	}
 	public void popupVictoryPanel() {
 		JFrame victoryFrame = new JFrame();
-		victoryFrame.setBounds(100, 100, 200, 200);
+		victoryFrame.setBounds(100, 100, 400, 100);
 		JPanel victoryPanel = new JPanel();
 		JLabel victoryLabel = new JLabel("Congrats! You win!");
 		victoryLabel.setVisible(true);
+		JLabel scoreLabel = new JLabel("Score: " + String.valueOf(model.puzzle.getScore()));
+		JLabel movesLabel = new JLabel("Moves: " + String.valueOf(model.puzzle.getMoves()));
 		victoryPanel.add(victoryLabel);
+		victoryPanel.add(scoreLabel);
+		victoryPanel.add(movesLabel);
 		victoryFrame.add(victoryPanel);
 		victoryFrame.setVisible(true);
 		
