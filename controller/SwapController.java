@@ -76,14 +76,48 @@ public class SwapController {
 						|| edgesSelected.get(k+1).getThatNode() == edgesSelected.get(k+2).getThisNode() 
 						|| edgesSelected.get(k+1).getThisNode() == edgesSelected.get(k+2).getThatNode() 
 						|| edgesSelected.get(k+1).getThisNode() == edgesSelected.get(k+2).getThisNode())) {
-					Color tempOne = edgesSelected.get(k).getColor();
-					Color tempTwo = edgesSelected.get(k+1).getColor();
-					Color tempThree = edgesSelected.get(k+2).getColor();
-					edgesSelected.get(k).setColor(tempThree);
-					edgesSelected.get(k+1).setColor(tempOne);
-					edgesSelected.get(k+2).setColor(tempTwo);
+					for(int q = 0; q < model.puzzle.triangleList.size(); q++) {
+						if(model.puzzle.triangleList.get(q).getIsSelected() == true) {
+							Color tempOne = edgesSelected.get(k).getColor();
+							Color tempTwo = edgesSelected.get(k+1).getColor();
+							Color tempThree = edgesSelected.get(k+2).getColor();
+							edgesSelected.get(k).setColor(tempTwo);
+							edgesSelected.get(k+1).setColor(tempThree);
+							edgesSelected.get(k+2).setColor(tempOne);
+							break;
+						}
+						else if(q == 5) {
+							Color tempOne = edgesSelected.get(k).getColor();
+							Color tempTwo = edgesSelected.get(k+1).getColor();
+							Color tempThree = edgesSelected.get(k+2).getColor();
+							edgesSelected.get(k).setColor(tempThree);
+							edgesSelected.get(k+1).setColor(tempOne);
+							edgesSelected.get(k+2).setColor(tempTwo);
+						}
+					}
+//					Color tempOne = edgesSelected.get(k).getColor();
+//					Color tempTwo = edgesSelected.get(k+1).getColor();
+//					Color tempThree = edgesSelected.get(k+2).getColor();
+//					edgesSelected.get(k).setColor(tempThree);
+//					edgesSelected.get(k+1).setColor(tempOne);
+//					edgesSelected.get(k+2).setColor(tempTwo);
 				}
 			}
+		}
+		int numCompletedTriangles = 0;
+		for(int z = 0; z < model.puzzle.triangleList.size(); z++) {
+			if(model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeRight().getColor()
+					&& model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeBottom().getColor()) {
+				model.puzzle.triangleList.get(z).setIsSelected(true);
+				System.out.println("Triangle " + model.puzzle.triangleList.get(z).getID() + " is complete");
+				numCompletedTriangles++;
+			}
+			else {
+				model.puzzle.triangleList.get(z).setIsSelected(false);
+			}
+		}
+		if(numCompletedTriangles == 6) {
+			System.out.println("Congrats! You won!");
 		}
 		model.puzzle.setMoves(model.puzzle.getMoves() + 1);
 		app.getPanel().validate();

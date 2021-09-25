@@ -43,6 +43,16 @@ public class MouseHandler extends MouseAdapter {
 			}
 			j++;
 		}
+		for(int k = 0; k < model.puzzle.triangleList.size(); k++) {
+			if(model.puzzle.triangleList.get(k).getEdgeLeft().getIsSelected() == true
+					&& model.puzzle.triangleList.get(k).getEdgeRight().getIsSelected() == true
+					&& model.puzzle.triangleList.get(k).getEdgeBottom().getIsSelected() == true) {
+				model.puzzle.triangleList.get(k).setIsSelected(true);
+			}
+			else {
+				model.puzzle.triangleList.get(k).setIsSelected(false);
+			}
+		}
 		app.getPanel().validate();
 		app.getPanel().repaint();
 	}

@@ -7,13 +7,15 @@ public class Triangle {
 	public Edge edgeLeft;
 	public Edge edgeBottom;
 	public boolean isSolid;
+	public boolean isSelected;
 	
-	public Triangle(int ID, Edge edgeLeft, Edge edgeRight, Edge edgeBottom, boolean isSolid) {
+	public Triangle(int ID, Edge edgeLeft, Edge edgeRight, Edge edgeBottom, boolean isSolid, boolean isSelected) {
 		this.ID = ID;
 		this.edgeLeft = edgeLeft;
 		this.edgeRight = edgeRight;
 		this.edgeBottom = edgeBottom;
 		this.isSolid = isSolid;
+		this.isSelected = isSelected;
 	}
 	
 	public int getID() {
@@ -38,6 +40,14 @@ public class Triangle {
 	
 	public boolean getIsSolid() {
 		return this.isSolid;
+	}
+	
+	public boolean getIsSelected() {
+		return this.isSelected;
+	}
+	
+	public void setIsSelected(boolean isSelected) {
+		this.isSelected = isSelected;
 	}
 
 }
