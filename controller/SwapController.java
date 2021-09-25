@@ -19,27 +19,6 @@ public class SwapController {
 	}
 	
 	public void process() {
-//		int edgesSelected = 0;
-//		for(int i = 0; i < model.puzzle.edgeList.size(); i++) {
-//			if(model.puzzle.edgeList.get(i).getIsSelected() == true) {
-//				edgesSelected++;
-//			}
-//		}
-//		System.out.println(edgesSelected);
-//		if(edgesSelected == 2) {
-//			for(int j = 0; j < model.puzzle.edgeList.size(); j++) {
-//				for(int k = 0; k < model.puzzle.edgeList.size(); k++) {
-//					if(j == k) {
-//						continue;
-//					}
-//					else if(model.puzzle.edgeList.get(j).getThatNode() == model.puzzle.edgeList.get(k).getThatNode()) {
-//						Color temp = model.puzzle.edgeList.get(j).getColor();
-//						model.puzzle.edgeList.get(j).setColor(model.puzzle.edgeList.get(k).getColor());
-//						model.puzzle.edgeList.get(k).setColor(temp);
-//					}
-//				}
-//			}
-//		}
 		int numEdgesSelected = 0;
 		ArrayList<Edge> edgesSelected = new ArrayList<Edge>();
 		for(int i = 0; i < model.puzzle.edgeList.size(); i++) {
@@ -95,12 +74,6 @@ public class SwapController {
 							edgesSelected.get(k+2).setColor(tempTwo);
 						}
 					}
-//					Color tempOne = edgesSelected.get(k).getColor();
-//					Color tempTwo = edgesSelected.get(k+1).getColor();
-//					Color tempThree = edgesSelected.get(k+2).getColor();
-//					edgesSelected.get(k).setColor(tempThree);
-//					edgesSelected.get(k+1).setColor(tempOne);
-//					edgesSelected.get(k+2).setColor(tempTwo);
 				}
 			}
 		}
@@ -118,6 +91,7 @@ public class SwapController {
 		}
 		if(numCompletedTriangles == 6) {
 			System.out.println("Congrats! You won!");
+			app.popupVictoryPanel();
 		}
 		model.puzzle.setMoves(model.puzzle.getMoves() + 1);
 		app.getPanel().validate();

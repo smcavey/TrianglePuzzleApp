@@ -76,9 +76,9 @@ public class TrianglePuzzleApp extends JFrame {
 		
 		JLabel lblScore = new JLabel("Score:");
 		
-		JLabel playerMovesLabel = new JLabel(String.valueOf(model.puzzle.getMoves()));
+		JLabel playerMovesLabel = new JLabel("0");
 		
-		JLabel playerScoreLabel = new JLabel(String.valueOf(model.puzzle.getScore()));
+		JLabel playerScoreLabel = new JLabel("0");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -128,5 +128,16 @@ public class TrianglePuzzleApp extends JFrame {
 					.addContainerGap(19, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	public void popupVictoryPanel() {
+		JFrame victoryFrame = new JFrame();
+		victoryFrame.setBounds(100, 100, 200, 200);
+		JPanel victoryPanel = new JPanel();
+		JLabel victoryLabel = new JLabel("Congrats! You win!");
+		victoryLabel.setVisible(true);
+		victoryPanel.add(victoryLabel);
+		victoryFrame.add(victoryPanel);
+		victoryFrame.setVisible(true);
+		
 	}
 }
