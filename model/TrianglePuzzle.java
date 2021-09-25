@@ -76,12 +76,12 @@ public class TrianglePuzzle {
 		edgeList.add(triangleSixRight);
 		edgeList.add(triangleSixBottom);
 		
-		Triangle triangleOne = new Triangle(1, triangleOneLeft, triangleOneRight, triangleOneBottom, false, false);
-		Triangle triangleTwo = new Triangle(2, triangleTwoLeft, triangleTwoRight, triangleTwoBottom, false, false);
-		Triangle triangleThree = new Triangle(3, triangleThreeLeft, triangleThreeRight, triangleThreeBottom, false, false);
-		Triangle triangleFour = new Triangle(4, triangleFourLeft, triangleFourRight, triangleFourBottom, false, false);
-		Triangle triangleFive = new Triangle(5, triangleFiveLeft, triangleFiveRight, triangleFiveBottom, false, false);
-		Triangle triangleSix = new Triangle(6, triangleSixLeft, triangleSixRight, triangleSixBottom, false, false);
+		Triangle triangleOne = new Triangle(1, triangleOneLeft, triangleOneRight, triangleOneBottom, false, false, false);
+		Triangle triangleTwo = new Triangle(2, triangleTwoLeft, triangleTwoRight, triangleTwoBottom, false, false, false);
+		Triangle triangleThree = new Triangle(3, triangleThreeLeft, triangleThreeRight, triangleThreeBottom, false, false, false);
+		Triangle triangleFour = new Triangle(4, triangleFourLeft, triangleFourRight, triangleFourBottom, false, false, false);
+		Triangle triangleFive = new Triangle(5, triangleFiveLeft, triangleFiveRight, triangleFiveBottom, false, false, false);
+		Triangle triangleSix = new Triangle(6, triangleSixLeft, triangleSixRight, triangleSixBottom, false, false, false);
 		
 		this.triangleList = new ArrayList<Triangle>();
 		triangleList.add(triangleOne);

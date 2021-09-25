@@ -93,16 +93,31 @@ public class SwapController {
 		for(int z = 0; z < model.puzzle.triangleList.size(); z++) {
 			if(model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeRight().getColor()
 					&& model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeBottom().getColor()) {
-				model.puzzle.triangleList.get(z).setIsSelected(true);
+				if(model.puzzle.triangleList.get(z).getIsSelected() != true) {
+					model.puzzle.triangleList.get(z).setIsSelected(true);
+					if(model.puzzle.triangleList.get(z).getIsBonusAdded() == false) {
+						model.puzzle.setScore(model.puzzle.getScore() + 10);
+						model.puzzle.triangleList.get(z).setIsBonusAdded(true);
+					}
+				}
+				else if(model.puzzle.triangleList.get(z).getIsSelected() == true) {
+					if(model.puzzle.triangleList.get(z).getIsBonusAdded() != true) {
+						model.puzzle.triangleList.get(z).setIsBonusAdded(true);
+						model.puzzle.setScore(model.puzzle.getScore() + 10);
+					}
+				}
 				numCompletedTriangles++;
 			}
-			else {
+			else if(model.puzzle.triangleList.get(z).getIsSelected() == true) {
 				model.puzzle.triangleList.get(z).setIsSelected(false);
+				if(model.puzzle.triangleList.get(z).getIsBonusAdded() == true) {
+					model.puzzle.triangleList.get(z).setIsBonusAdded(false);
+					model.puzzle.setScore(model.puzzle.getScore() - 10);
+				}
 			}
 		}
 		if(numCompletedTriangles == 6) {
 			System.out.println("Congrats! You won!");
-			model.puzzle.setScore(model.puzzle.getScore() + 60);
 			app.popupVictoryPanel();
 		}
 		app.getPanel().repaint();

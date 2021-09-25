@@ -43,7 +43,9 @@ public class TrianglePuzzleDrawer extends JPanel {
 			g.setColor(edges.getColor());
 			g.drawLine(edges.getXOneCoord(), edges.getYOneCoord(), edges.getXTwoCoord(), edges.getYTwoCoord());
 		}
-
+		g.setColor(Color.BLACK);
+		g.drawString("Score: " + String.valueOf(model.puzzle.getScore()), 300, 25);
+		g.drawString("Moves: " + String.valueOf(model.puzzle.getMoves()), 300, 40);
 	}
 
 }

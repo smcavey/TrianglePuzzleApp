@@ -72,14 +72,6 @@ public class TrianglePuzzleApp extends JFrame {
 				new ResetController(model, TrianglePuzzleApp.this).process();
 			}
 		});
-		
-		JLabel lblMoves = new JLabel("Moves:");
-		
-		JLabel lblScore = new JLabel("Score:");
-		
-		JLabel playerMovesLabel = new JLabel("0");
-		
-		JLabel playerScoreLabel = new JLabel("0");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -87,61 +79,38 @@ public class TrianglePuzzleApp extends JFrame {
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(btnUnselectAll, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnSwap, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblMoves)
-							.addGap(18)
-							.addComponent(playerMovesLabel))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblScore)
-							.addGap(18)
-							.addComponent(playerScoreLabel, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(btnUnselectAll, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnSwap, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(22)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblMoves)
-								.addComponent(playerMovesLabel))
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblScore)
-								.addComponent(playerScoreLabel))
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addComponent(btnUnselectAll)
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(btnSwap)
 								.addComponent(btnReset))))
-					.addContainerGap(19, Short.MAX_VALUE))
+					.addContainerGap(193, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
 	public void popupVictoryPanel() {
 		JFrame victoryFrame = new JFrame();
-		victoryFrame.setBounds(100, 100, 400, 100);
+		victoryFrame.setBounds(100, 100, 100, 100);
 		JPanel victoryPanel = new JPanel();
 		JLabel victoryLabel = new JLabel("Congrats! You win!");
 		victoryLabel.setVisible(true);
-		JLabel scoreLabel = new JLabel("Score: " + String.valueOf(model.puzzle.getScore()));
-		JLabel movesLabel = new JLabel("Moves: " + String.valueOf(model.puzzle.getMoves()));
 		victoryPanel.add(victoryLabel);
-		victoryPanel.add(scoreLabel);
-		victoryPanel.add(movesLabel);
-		victoryFrame.add(victoryPanel);
+		victoryFrame.getContentPane().add(victoryPanel);
 		victoryFrame.setVisible(true);
 		
 	}
