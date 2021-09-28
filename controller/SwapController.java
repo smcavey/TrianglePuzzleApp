@@ -40,6 +40,8 @@ public class SwapController {
 					model.puzzle.setMoves(moves + 1);
 					int score = model.puzzle.getScore();
 					model.puzzle.setScore(score - 1);
+					UnselectAllController unselectAllController = new UnselectAllController(model, app);
+					unselectAllController.process();
 				}
 			}
 		}
@@ -71,6 +73,8 @@ public class SwapController {
 							model.puzzle.setMoves(moves + 1);
 							int score = model.puzzle.getScore();
 							model.puzzle.setScore(score - 1);
+							UnselectAllController unselectAllController = new UnselectAllController(model, app);
+							unselectAllController.process();
 							break;
 						}
 						else if(q == 5) {
@@ -84,6 +88,8 @@ public class SwapController {
 							model.puzzle.setMoves(moves + 1);
 							int score = model.puzzle.getScore();
 							model.puzzle.setScore(score - 1);
+							UnselectAllController unselectAllController = new UnselectAllController(model, app);
+							unselectAllController.process();
 						}
 					}
 				}
