@@ -1,12 +1,12 @@
-package starting.view;
+package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-import starting.model.Edge;
-import starting.model.Model;
-import starting.model.Node;
+import model.Edge;
+import model.Model;
+import model.Node;
 
 public class TrianglePuzzleDrawer extends JPanel {
 

@@ -1,11 +1,11 @@
-package starting.controller;
+package controller;
 
 import java.awt.Color;
 import java.util.ArrayList;
 
-import starting.model.Edge;
-import starting.model.Model;
-import starting.view.TrianglePuzzleApp;
+import model.Edge;
+import model.Model;
+import view.TrianglePuzzleApp;
 
 public class SwapController {
 	

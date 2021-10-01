@@ -1,4 +1,4 @@
-package starting.view;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,11 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import starting.controller.MouseHandler;
-import starting.controller.ResetController;
-import starting.controller.SwapController;
-import starting.controller.UnselectAllController;
-import starting.model.Model;
+import controller.MouseHandler;
+import controller.ResetController;
+import controller.SwapController;
+import controller.UnselectAllController;
+import model.Model;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;

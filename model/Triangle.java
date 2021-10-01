@@ -1,4 +1,4 @@
-package starting.model;
+package model;
 
 public class Triangle {
 	

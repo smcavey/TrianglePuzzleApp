@@ -1,8 +1,8 @@
-package starting.controller;
+package controller;
 
-import starting.model.Model;
-import starting.model.TrianglePuzzle;
-import starting.view.TrianglePuzzleApp;
+import model.Model;
+import model.TrianglePuzzle;
+import view.TrianglePuzzleApp;
 
 public class ResetController {
 
@@ -15,6 +15,7 @@ public class ResetController {
 	}
 	
 	public void process() {
+		model.setHasWon(false);
 		model.puzzle = new TrianglePuzzle();
 		model.puzzle.setMoves(0);
 		model.puzzle.setScore(0);

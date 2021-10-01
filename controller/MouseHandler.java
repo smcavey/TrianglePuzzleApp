@@ -1,12 +1,12 @@
-package starting.controller;
+package controller;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import starting.model.Edge;
-import starting.model.Model;
-import starting.model.Node;
-import starting.view.TrianglePuzzleApp;
+import model.Edge;
+import model.Model;
+import model.Node;
+import view.TrianglePuzzleApp;
 
 public class MouseHandler extends MouseAdapter {
 
@@ -20,6 +20,9 @@ public class MouseHandler extends MouseAdapter {
 	
 	@Override
     public void mousePressed(MouseEvent e) {
+		if(model.getHasWon() == true) {
+			return;
+		}
 		System.out.println(e.getPoint());
 		int i = 0;
 		for(Node nodes : model.puzzle.nodeList) {

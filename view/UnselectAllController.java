@@ -1,9 +1,9 @@
-package starting.view;
+package view;
 
-import starting.model.Edge;
-import starting.model.Model;
-import starting.model.Node;
-import starting.view.TrianglePuzzleApp;
+import model.Edge;
+import model.Model;
+import model.Node;
+import view.TrianglePuzzleApp;
 
 public class UnselectAllController {
 	
