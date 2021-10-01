@@ -95,7 +95,6 @@ public class SwapController {
 				}
 			}
 		}
-		int numCompletedTriangles = 0;
 		for(int z = 0; z < model.puzzle.triangleList.size(); z++) {
 			if(model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeRight().getColor()
 					&& model.puzzle.triangleList.get(z).getEdgeLeft().getColor() == model.puzzle.triangleList.get(z).getEdgeBottom().getColor()) {
@@ -112,7 +111,6 @@ public class SwapController {
 						model.puzzle.setScore(model.puzzle.getScore() + 10);
 					}
 				}
-				numCompletedTriangles++;
 			}
 			else if(model.puzzle.triangleList.get(z).getIsSelected() == true) {
 				model.puzzle.triangleList.get(z).setIsSelected(false);
@@ -122,8 +120,33 @@ public class SwapController {
 				}
 			}
 		}
-		if(numCompletedTriangles == 6) {
+		int numTrianglesCompleted = 0;
+		for(int q = 0; q < model.puzzle.triangleList.size(); q++) {
+			if(q == 0 || q == 4) {
+				if(model.puzzle.triangleList.get(q).getEdgeLeft().getColor() == Color.red
+						&& model.puzzle.triangleList.get(q).getEdgeRight().getColor() == Color.red
+						&& model.puzzle.triangleList.get(q).getEdgeBottom().getColor() == Color.red) {
+					numTrianglesCompleted++;
+				}
+			}
+				else if(q == 1 || q == 5) {
+					if(model.puzzle.triangleList.get(q).getEdgeLeft().getColor() == Color.blue
+							&& model.puzzle.triangleList.get(q).getEdgeRight().getColor() == Color.blue
+							&& model.puzzle.triangleList.get(q).getEdgeBottom().getColor() == Color.blue) {
+						numTrianglesCompleted++;
+					}
+				}
+				else if(q == 2 || q == 3) {
+					if(model.puzzle.triangleList.get(q).getEdgeLeft().getColor() == Color.green
+							&& model.puzzle.triangleList.get(q).getEdgeRight().getColor() == Color.green
+							&& model.puzzle.triangleList.get(q).getEdgeBottom().getColor() == Color.green) {
+						numTrianglesCompleted++;
+					}
+				}
+		}
+		if(numTrianglesCompleted == 6) {
 			System.out.println("Congrats! You won!");
+			model.setHasWon(true);
 			app.popupVictoryPanel();
 		}
 		app.getPanel().repaint();
